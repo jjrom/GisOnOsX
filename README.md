@@ -10,30 +10,57 @@ Install latest XCode from Apple Store with "Command Line Tool" or only install t
 In this case you'll need a free developer login to access the download, login and look for "Command Line Tools for Xcode".
 
 
-Packages manager
+Install homebrew
 ================
 
-Install homebrew - http://mxcl.github.com/homebrew/
+See http://mxcl.github.com/homebrew/
 
-    => GDAL
+
+Packages installation
+=====================
+
+Install GDAL
+
     brew install gdal
     
-    => PostGIS
+Install PostGIS
+
     brew install postgresql
     brew install postgis
     
-    => PHP 5.3
+Install PHP 5.3
+
     brew tap homebrew/dupes
     brew tap josegonzalez/homebrew-php
     brew install php53 --with-pgsql
     
-    => SOLR
+Install SOLR
+
     brew install solr
     brew install php53-solr
     
-    => mapserver 6.2
+Install mapserver 6.2
+
+    brew install freetype gd libpng
     brew install https://raw.github.com/mapserver/packaging/master/homebrew/mapserver.rb
     
     
-    
-  
+Configuration
+=============
+
+Configure your ~/.bash_profile :
+
+    # Homebrew PATH
+    export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
+    # Postgres path
+    export PGDATA='/usr/local/var/postgres/'
+
+    # Homebrew PHP 5.3
+    export PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
+
+If using Apache, you will need to update the `LoadModule` call. For convenience, simply comment out the old PHP version:
+
+    # /etc/apache2/httpd.conf
+    # ...
+    LoadModule php5_module    /usr/local/Cellar/php53/5.3.17/libexec/apache2/libphp5.so
