@@ -78,7 +78,7 @@ Copy mapserver executable within Apache CGI directory
 Configure mapcache
     
     # Edit /etc/apache2/httpd.conf and add the following
-    LoadModule mapcache_module    modules/mod_mapcache.so
+    LoadModule mapcache_module   libexec/apache2/mod_mapcache.so
     <IfModule mapcache_module>
         <Directory /usr/local/etc/mapcache>
             Order Allow,Deny
