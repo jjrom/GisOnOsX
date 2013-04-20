@@ -19,6 +19,9 @@ See http://mxcl.github.com/homebrew/
 Packages installation
 =====================
 
+Install usefull packages
+    brew install wget
+    
 Install GDAL
 
     brew install gdal
