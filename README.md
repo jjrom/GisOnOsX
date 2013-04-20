@@ -27,22 +27,10 @@ Install PostGIS
 
     brew install postgresql
     brew install postgis
-    
-Install PHP 5.3
-
-    brew tap homebrew/dupes
-    brew tap josegonzalez/homebrew-php
-    brew install php53 --with-pgsql
-    
-Install SOLR
-
-    brew install solr
-    brew install php53-solr
-    
+        
 Install mapserver 6.2
 
-    brew install freetype gd libpng
-    brew install https://raw.github.com/mapserver/packaging/master/homebrew/mapserver.rb
+    brew install mapserver
     
     
 Configuration
@@ -55,12 +43,3 @@ Configure your ~/.bash_profile :
 
     # Postgres path
     export PGDATA='/usr/local/var/postgres/'
-
-    # Homebrew PHP 5.3
-    export PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
-
-If using Apache, you will need to update the `LoadModule` call. For convenience, simply comment out the old PHP version:
-
-    # /etc/apache2/httpd.conf
-    # ...
-    LoadModule php5_module    /usr/local/Cellar/php53/5.3.17/libexec/apache2/libphp5.so
