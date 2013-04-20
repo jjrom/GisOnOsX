@@ -46,3 +46,8 @@ Configure your ~/.bash_profile :
 
     # Postgres path
     export PGDATA='/usr/local/var/postgres/'
+    
+Copy mapserver executable within Apache CGI directory
+
+    sudo cp /usr/local/Cellar/mapserver/6.2.0/bin/mapserv .
+
