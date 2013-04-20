@@ -20,7 +20,10 @@ Packages installation
 =====================
 
 Install usefull packages
+
     brew install wget
+    brew install cmake
+    brew install fastcgi
     
 Install GDAL
 
@@ -34,7 +37,28 @@ Install PostGIS
 Install mapserver 6.2
 
     brew install mapserver
+
+Install mapcache
+
+    brew install pixman
     
+    # Create a temporary directory
+    mkdir tmp
+    cd tmp
+    
+    # Retrieve mapcache
+    git clone git://github.com/mapserver/mapcache.git
+    
+    # Compilation
+    cmake mapcache
+    make
+    sudo make install
+    
+    # Copy mapcache configuration file to /usr/local/etc
+    cp mapcache/mapcache.xml /usr/local/etc/
+    
+    # Clean tmp directory
+    rm tmp
     
 Configuration
 =============
@@ -50,4 +74,21 @@ Configure your ~/.bash_profile :
 Copy mapserver executable within Apache CGI directory
 
     sudo cp /usr/local/Cellar/mapserver/6.2.0/bin/mapserv .
+    
+Configure mapcache
+    
+    # Edit /etc/apache2/httpd.conf and add the following
+    LoadModule mapcache_module    modules/mod_mapcache.so
+    <IfModule mapcache_module>
+        <Directory /usr/local/etc/mapcache>
+            Order Allow,Deny
+            Allow from all
+        </Directory>
+        MapCacheAlias /mapcache "/usr/local/etc/mapcache/mapcache.xml"
+    </IfModule>
+    
+    # Restart apache
+    sudo apachectl restart
+    
+    
 
