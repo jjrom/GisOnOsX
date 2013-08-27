@@ -32,7 +32,7 @@ Install PostGIS
         
 Install GDAL
 
-    brew install gdal --with-postgresql
+    brew install gdal --with-postgres
     
 Install mapserver 6.2
 
