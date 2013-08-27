@@ -25,15 +25,15 @@ Install usefull packages
     brew install cmake
     brew install fastcgi
     
-Install GDAL
-
-    brew install gdal
-    
 Install PostGIS
 
     brew install postgresql
     brew install postgis
         
+Install GDAL
+
+    brew install gdal --with-postgresql
+    
 Install mapserver 6.2
 
     brew install mapserver
