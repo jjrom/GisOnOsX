@@ -36,7 +36,7 @@ Install GDAL
     
 Install mapserver 6.2
 
-    brew install mapserver
+    brew install mapserver --with-postgresql --with-geos
 
 Install mapcache
 
