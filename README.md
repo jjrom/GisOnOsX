@@ -15,6 +15,10 @@ Install homebrew
 
 See http://mxcl.github.com/homebrew/
 
+Install XQuartz
+===============
+
+Download and install at https://xquartz.macosforge.org/landing/
 
 Packages installation
 =====================
@@ -32,7 +36,7 @@ Install PostGIS
         
 Install GDAL
 
-    brew install gdal --with-postgres
+    brew install gdal --enable-unsupported --complete --with-postgres
     
 Install mapserver 6.2
 
